@@ -129,6 +129,7 @@ filters.addEventListener('click', e => {
   if (!b) return;
   active = b.dataset.category;
   filters.querySelectorAll('button').forEach(x => x.classList.toggle('active', x === b));
+  b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   render();
 });
 
