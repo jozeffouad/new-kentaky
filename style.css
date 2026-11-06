@@ -1159,6 +1159,7 @@ footer small {
     left: 14px !important;
     left: calc(14px + env(safe-area-inset-left, 0px)) !important;
     right: auto !important;
+    width: 52px;
   }
 
   .fab-toggle {
@@ -1218,13 +1219,12 @@ footer small {
   left: 20px;
   left: calc(20px + env(safe-area-inset-left, 0px));
   right: auto !important;
+  width: 56px;
   z-index: 999999;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
 }
 
 /* الـ Overlay الشفاف لإغلاق القائمة عند النقر خارجها */
@@ -1247,12 +1247,14 @@ footer small {
 
 /* قائمة الأرقام */
 .fab-menu {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 14px);
   background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.12);
   width: 310px;
   max-width: calc(100vw - 40px);
-  margin-bottom: 14px;
   overflow: hidden;
   transform-origin: bottom left;
   transform: scale(0.85) translateY(10px);
