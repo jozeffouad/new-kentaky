@@ -135,3 +135,49 @@ filters.addEventListener('click', e => {
 
 search.addEventListener('input', render);
 render();
+
+
+/* ===========================
+   زر التواصل العائم - منطق الفتح والإغلاق
+   =========================== */
+(function () {
+  const fab     = document.getElementById('contactFab');
+  const toggle  = document.getElementById('fabToggle');
+  const overlay = document.getElementById('fabOverlay');
+  const closeBtn= document.getElementById('fabClose');
+  const menu    = document.getElementById('fabMenu');
+
+  if (!fab || !toggle) return;
+
+  function openMenu() {
+    fab.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    toggle.classList.remove('pulse');
+  }
+
+  function closeMenu() {
+    fab.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+  }
+
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    fab.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  /* إغلاق بمفتاح Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  /* نبضة انتباه عند تحميل الصفحة */
+  setTimeout(function () {
+    toggle.classList.add('pulse');
+  }, 1500);
+})();
